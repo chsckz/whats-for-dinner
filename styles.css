@@ -67,12 +67,12 @@ button {
   padding-left: 3em;
 }
 
-ul {
-  padding: 1em;
-  margin-top: -1em;
+.dishType {
+  padding-bottom: 2em;
+  gap: 1em;
 }
 
-li:not(:last-child) {
+.dishInput:not(:last-child) {
   margin-bottom: 1em;
 }
 .rightContainer {
