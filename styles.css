@@ -42,6 +42,7 @@ button {
   background-color: #0fb9b1;
   max-width: 120px;
   padding: 5px 10px;
+  margin-top: -1em;
 }
 .letsCookBtn:active {
   background-color: #0c918a;
@@ -63,12 +64,17 @@ button {
 .leftContainer {
   flex-direction: column;
   justify-content: center;
+  padding-left: 3em;
 }
 
 ul {
-
+  padding: 1em;
+  margin-top: -1em;
 }
 
+li:not(:last-child) {
+  margin-bottom: 1em;
+}
 .rightContainer {
   justify-content: center;
   align-items: center;
