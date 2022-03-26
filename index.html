@@ -11,7 +11,7 @@
   <body>
     <div class="header">
       <h3>WTF Should I Make?</h3>
-      <button class="addRecipeBtn">Add A Recipe</button>
+      <button id="addRecipeBtn">ADD A RECIPE</button>
     </div>
     <div class="bodyContainer">
       <div class="leftContainer">
@@ -26,10 +26,16 @@
           <input class="dishInput" type="radio" name="dishType" value=Entire>
           <label for="Entire">Entire Meal</label>
         </div>
-        <button class="letsCookBtn">COOK IT UP!</button>
+        <button id="letsCookBtn">COOK IT UP!</button>
       </div>
       <div class="rightContainer">
-        <img class="cookPot" src="./assets/cookpot.svg">
+        <img class="cookPotImg" src="./assets/cookpot.svg">
+        <div class="mealContainer hidden">
+          <div class="suggestionContainer">You should make:<br>
+            <p id="insertDish"></p>
+          </div>
+          <button id="clearBtn">CLEAR</button>
+        </div>
       </div>
     </div>
   </body>
