@@ -5,7 +5,7 @@ const clearBtn = document.getElementById('clearBtn');
 
 const dishType = document.getElementsByTagName('dishType');
 const insertDish = document.getElementById('insertDish');
-const cookPotImg = document.getElementById('cookPotImg');
+const cookPotImg = document.querySelector('#cookPotImg');
 
 const mealContainer = document.querySelector('.mealContainer');
 
@@ -33,9 +33,9 @@ let dessert = [
 ];
 let entireMeal; //random pick from 1 of each above array
 
-//Event identifiers
+//Event listeners
 letsCookBtn.addEventListener('click', dishInputValue);
-// clearBtn.addEventListener('click', );
+clearBtn.addEventListener('click', clear);
 
 
 
@@ -63,6 +63,7 @@ function suggestDessert() {
 function dishInputValue() {
   let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
   mealContainer.classList.remove('hidden');
+  cookPotImg.classList.add('hidden');
   if (tempDishValue === 'side') {
     suggestSide();
   }
@@ -74,3 +75,7 @@ function dishInputValue() {
   }
 }
 
+function clear() {
+  mealContainer.classList.add('hidden');
+  cookPotImg.classList.remove('hidden')
+}

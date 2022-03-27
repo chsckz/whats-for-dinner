@@ -26,11 +26,7 @@ button {
   padding: 5px 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-/* HEADER */
+/* ~ ~ ~ ~ ~ ~ HEADER ~ ~ ~ ~ ~ ~ */
 
 .header {
   display: flex;
@@ -47,7 +43,7 @@ button {
 }
 
 
-/* MAIN CONTENT */
+/* ~ ~ ~ ~ ~ ~ MAIN CONTENT ~ ~ ~ ~ ~ ~ */
 
 .bodyContainer {
   display: flex;
@@ -58,11 +54,11 @@ button {
 .leftContainer, .rightContainer {
   display: flex;
   background-color: rgba(225, 225, 225, .9);
-  height: 300px;
-  width: 400px;
+  height: 350px;
+  width: 25%;
 }
 
-/* LEFT CONTAINER */
+/* ~ ~ ~ ~ ~ ~ LEFT CONTAINER ~ ~ ~ ~ ~ ~ */
 .leftContainer {
   flex-direction: column;
   justify-content: center;
@@ -90,7 +86,7 @@ button {
   color: white;
 }
 
-/* RIGHT CONTAINER */
+/* ~ ~ ~ ~ ~ ~ RIGHT CONTAINER ~ ~ ~ ~ ~ ~ */
 
 .rightContainer {
   justify-content: center;
@@ -112,7 +108,7 @@ button {
 .suggestionContainer {
   font-style: italic;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 #insertDish {
@@ -125,6 +121,7 @@ button {
 #clearBtn {
   align-self: flex-end;
   justify-self: flex-end;
+  padding 10px;
 }
 
 #clearBtn:active {
@@ -132,5 +129,8 @@ button {
   color: white;
 }
 
+/* ~ ~ ~ ~ ~ ~ Misc ~ ~ ~ ~ ~ ~ */
 
-
+.hidden {
+  display: none;
+}
