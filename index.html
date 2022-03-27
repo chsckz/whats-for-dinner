@@ -11,21 +11,34 @@
   <body>
     <div class="header">
       <h3>WTF Should I Make?</h3>
-      <button class="addRecipeBtn">Add A Recipe</button>
+      <button id="addRecipeBtn">ADD A RECIPE</button>
     </div>
     <div class="bodyContainer">
       <div class="leftContainer">
-        <h4>WTF are you looking for?</h4>
-        <ul>
-          <li>Side</li>
-          <li>Entr&eacute;e</li>
-          <li>Dessert</li>
-          <li>Entire Meal</li>
-        </ul>
-        <button class="letsCookBtn">COOK IT UP!</button>
+        <h3>WTF are you looking for?</h3>
+        <form class="radioBtns">
+          <input type="radio" name="dishType" value="side">
+          <label for="side">Side</label>
+          <br>
+          <input type="radio" name="dishType" value="entree">
+          <label for="entree">Entr&eacute;e</label>
+          <br>
+          <input type="radio" name="dishType" value="dessert">
+          <label for="dessert">Dessert</label>
+          <br>
+          <input type="radio" name="dishType" value="entireMeal">
+          <label for="entireMeal">Entire Meal</label>
+        </form>
+        <button id="letsCookBtn">COOK IT UP!</button>
       </div>
       <div class="rightContainer">
-        <img class="cookPot" src="./assets/cookpot.svg">
+        <img id="cookPotImg" src="./assets/cookpot.svg">
+        <section class="mealContainer hidden">
+          <div class="suggestionContainer">You should make:<br>
+            <p id="insertDish"></p>
+          </div>
+          <button id="clearBtn">CLEAR</button>
+        </section>
       </div>
     </div>
   </body>

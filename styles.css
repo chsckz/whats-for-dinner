@@ -19,6 +19,19 @@ body {
   background-size: cover;
 }
 
+button {
+  font-size: 12px;
+  border-radius: 3px;
+  border-style: hidden;
+  padding: 5px 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* HEADER */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -28,24 +41,13 @@ body {
   background-color: #0fb9b1;
 }
 
-button {
-  border-radius: 3px;
-  border-style: hidden;
-  padding: 5px 10px;
-}
-
-.addRecipeBtn:active {
+#addRecipeBtn:active {
   background-color: #95a5a6;
+  color: white;
 }
 
-.letsCookBtn {
-  background-color: #0fb9b1;
-  max-width: 120px;
-  padding: 5px 10px;
-}
-.letsCookBtn:active {
-  background-color: #0c918a;
-}
+
+/* MAIN CONTENT */
 
 .bodyContainer {
   display: flex;
@@ -60,21 +62,75 @@ button {
   width: 400px;
 }
 
+/* LEFT CONTAINER */
 .leftContainer {
   flex-direction: column;
   justify-content: center;
+  padding-left: 3em;
 }
 
-ul {
-
+.radioBtns {
+  padding-bottom: 2em;
+  gap: 1em;
 }
+
+.dishInput:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+#letsCookBtn {
+  background-color: #0fb9b1;
+  max-width: 120px;
+  padding: 5px 10px;
+  margin-top: -1em;
+}
+
+#letsCookBtn:active {
+  background-color: #0c918a;
+  color: white;
+}
+
+/* RIGHT CONTAINER */
 
 .rightContainer {
   justify-content: center;
   align-items: center;
 }
 
-.cookPot {
+#cookPotImg {
   max-width: 100px;
 }
+
+.mealContainer {
+  height: 250px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.suggestionContainer {
+  font-style: italic;
+  text-align: center;
+  padding-top: 80px;
+}
+
+#insertDish {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0;
+}
+
+#clearBtn {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+#clearBtn:active {
+  background-color: #95a5a6;
+  color: white;
+}
+
+
 
