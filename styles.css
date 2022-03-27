@@ -50,7 +50,7 @@ button {
   background-color: #0fb9b1;
 }
 
-#addRecipeBtn:active {
+#addARecipeBtn:active {
   background-color: #95a5a6;
   color: white;
 }
@@ -122,10 +122,12 @@ button {
 .suggestionContainer {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 0;
   font-style: italic;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  max-height: 100%;
 }
 
 #insertDish {
@@ -138,7 +140,7 @@ button {
 #clearBtn {
   align-self: flex-end;
   justify-self: flex-end;
-  padding 10px;
+  padding: 5px 10px;
 }
 
 #clearBtn:active {
@@ -150,18 +152,20 @@ button {
 .footer {
   background-color: rgba(225, 225, 225, .9);
   padding: 20px 20px;
-  gap: 10px;
+  display: flex;
+  align-items: center;
 }
 
 span + span {
   padding-left: 15px;
 }
 
-#confirmAddRecipeBtn {
+#addNewRecipeBtn {
   background-color: #0fb9b1;
+  margin-left: 20px;
 }
 
-#confirmAddRecipeBtn:active {
+#addNewRecipeBtn:active {
   background-color: #0c918a;
   color: white;
 }
