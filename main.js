@@ -1,8 +1,13 @@
-//Variables
+//Selectors
 const addRecipeBtn = document.getElementById('addRecipeBtn');
 const letsCookBtn = document.getElementById('letsCookBtn');
-const insertDish = document.getElementById('insertDish');
+const clearBtn = document.getElementById('clearBtn');
 
+const dishType = document.getElementsByTagName('dishType');
+const insertDish = document.getElementById('insertDish');
+const cookPotImg = document.getElementById('cookPotImg');
+
+const mealContainer = document.querySelector('.mealContainer');
 
 //Recipe storage arrays
 let sideDishes = [
@@ -29,8 +34,8 @@ let dessert = [
 let entireMeal; //random pick from 1 of each above array
 
 //Event identifiers
-
-
+letsCookBtn.addEventListener('click', dishInputValue);
+// clearBtn.addEventListener('click', );
 
 
 
@@ -54,3 +59,18 @@ function suggestDessert() {
   let suggest = dessert[getRandomIndex(dessert)];
   insertDish.textContent = suggest;
 }
+
+function dishInputValue() {
+  let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
+  mealContainer.classList.remove('hidden');
+  if (tempDishValue === 'side') {
+    suggestSide();
+  }
+  if (tempDishValue === 'entree') {
+    suggestEntree();
+  }
+  if (tempDishValue === 'dessert') {
+    suggestDessert();
+  }
+}
+
