@@ -120,9 +120,12 @@ button {
 }
 
 .suggestionContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   font-style: italic;
+  justify-content: center;
   text-align: center;
-  padding-top: 70px;
 }
 
 #insertDish {
