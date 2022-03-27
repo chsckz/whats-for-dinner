@@ -60,6 +60,13 @@ function suggestDessert() {
   insertDish.textContent = suggest;
 }
 
+function suggestEntireMeal() {
+  let tempEntree = (entree[getRandomIndex(entree)]);
+  let tempSide =  sideDishes[getRandomIndex(sideDishes)];
+  let tempDessert = dessert[getRandomIndex(dessert)];
+  insertDish.textContent = `${tempEntree} with a side of ${tempSide} and ${tempDessert} for dessert!`
+}
+
 function dishInputValue() {
   let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
   mealContainer.classList.remove('hidden');
@@ -72,6 +79,9 @@ function dishInputValue() {
   }
   if (tempDishValue === 'dessert') {
     suggestDessert();
+  }
+  if (tempDishValue === 'entireMeal') {
+    suggestEntireMeal();
   }
 }
 

@@ -8,15 +8,28 @@ red - #ee5253
 
 */
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+* {
   font-family: Roboto, sans-serif;
-  margin: 0;
-  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
   background-image: url(./assets/burger-friends.jpg);
   background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
 }
 
 button {
@@ -47,6 +60,7 @@ button {
 
 .bodyContainer {
   display: flex;
+  flex-grow: 1;
   justify-content: space-around;
   padding-top: 50px;
 }
@@ -129,6 +143,25 @@ button {
   color: white;
 }
 
+/* ~ ~ ~ ~ ~ ~ Footer ~ ~ ~ ~ ~ ~ */
+.footer {
+  background-color: rgba(225, 225, 225, .9);
+  padding: 20px 20px;
+  gap: 10px;
+}
+
+span + span {
+  padding-left: 15px;
+}
+
+#confirmAddRecipeBtn {
+  background-color: #0fb9b1;
+}
+
+#confirmAddRecipeBtn:active {
+  background-color: #0c918a;
+  color: white;
+}
 /* ~ ~ ~ ~ ~ ~ Misc ~ ~ ~ ~ ~ ~ */
 
 .hidden {
