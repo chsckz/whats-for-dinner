@@ -169,8 +169,15 @@ span + span {
   background-color: #0c918a;
   color: white;
 }
+
 /* ~ ~ ~ ~ ~ ~ Misc ~ ~ ~ ~ ~ ~ */
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .bodyContainer {
+    flex-direction: column;
+  }
 }

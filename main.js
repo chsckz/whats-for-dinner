@@ -70,10 +70,19 @@ function suggestEntireMeal() {
   insertDish.textContent = `${tempEntree} with a side of ${tempSide} and ${tempDessert} for dessert!`
 }
 
-function typeOfDishToCook() {
-  let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
+function cookpotOff() {
   mealContainer.classList.remove('hidden');
   cookPotImg.classList.add('hidden');
+}
+
+function clear() {
+  mealContainer.classList.add('hidden');
+  cookPotImg.classList.remove('hidden')
+}
+
+function typeOfDishToCook() {
+  let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
+  cookpotOff();
   if (tempDishValue === 'side') {
     suggestSide();
   }
@@ -88,15 +97,40 @@ function typeOfDishToCook() {
   }
 }
 
-function clear() {
-  mealContainer.classList.add('hidden');
-  cookPotImg.classList.remove('hidden')
-}
-
 function addNewRecipe() {
   let dishType = document.querySelector('input[name="recipeType"]').value;
   let dishName = document.querySelector('input[name="recipeName"]').value;
-  if (dishType == 'side' || 'dessert') {
-    alert('Please use a valid dish type');
+  let dishTypeLower = dishType.toLowerCase();
+  if (dishTypeLower === 'side') {
+    if (!sideDishes.includes(dishName)) {
+      sideDishes.push(dishName);
+      insertDish.textContent = dishName;
+      alert(dishName + ' added!');
+      return
+    }
+    alert('You already put that in, foo!');
+    return
   }
+  if (dishTypeLower === 'entree') {
+    if (!entree.includes(dishName)) {
+      entree.push(dishName);
+      insertDish.textContent = dishName;
+      alert(dishName + ' added!');
+      return
+    }
+    alert('You already put that in, foo!');
+    return
+  }
+  if (dishTypeLower === 'dessert') {
+    if (!dessert.includes(dishName)) {
+    dessert.push(dishName);
+    insertDish.textContent = dishName;
+    alert(dishName + ' added!');
+    return
+    }
+    alert('You already put that in, foo!');
+    return
+  }
+  alert('Whatchu tryna make?! Side, entree, or dessert?');
+  return
 }
