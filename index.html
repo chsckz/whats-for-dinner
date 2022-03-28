@@ -16,6 +16,7 @@
     </div>
     <div class="bodyContainer">
       <div class="leftContainer">
+        <div class="formContainer">
         <h3>WTF are you looking for?</h3>
         <form class="radioBtns">
           <input type="radio" name="dishType" value="side">
@@ -31,6 +32,7 @@
           <label for="entireMeal">Entire Meal</label>
         </form>
         <button id="letsCookBtn">COOK IT UP!</button>
+        </div>
       </div>
       <div class="rightContainer">
         <img id="cookPotImg" src="./assets/cookpot.svg">
@@ -46,11 +48,14 @@
       </div>
     </div>
     <div class="footer">
-      <form class="recipeForm">
-        <span>Recipe Type: <input type="text" name="recipeType" value=""></span>
-        <span>Recipe Name: <input type="text" name="recipeName" value=""></span>
-      </form>
-        <button id="addNewRecipeBtn">ADD NEW</button>
+      <p class="copyright">Copyright James&copy; 2022</p>
+      <div class="addRecipe hidden">
+        <form>
+          <span>Recipe Type: <input type="text" name="recipeType" value=""></span>
+          <span>Recipe Name: <input type="text" name="recipeName" value=""></span>
+        </form>
+          <button id="addNewRecipeBtn">ADD NEW</button>
+      </div>
     </div>
   </article>
   </body>
