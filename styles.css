@@ -50,7 +50,7 @@ button {
   background-color: #0fb9b1;
 }
 
-#addARecipeBtn:active {
+#addARecipeBtn:active, #homeBtn:active {
   background-color: #95a5a6;
   color: white;
 }
@@ -62,14 +62,16 @@ button {
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
-  padding-top: 50px;
+  padding: 30px 0;
 }
 
 .leftContainer, .rightContainer {
   display: flex;
   background-color: rgba(225, 225, 225, .9);
-  height: 350px;
-  width: 25%;
+  min-height: 350px;
+  max-height: 800px;
+  min-width: 30%;
+  flex-shrink: 0;
 }
 
 /* ~ ~ ~ ~ ~ ~ LEFT CONTAINER ~ ~ ~ ~ ~ ~ */
@@ -130,20 +132,20 @@ button {
   max-height: 100%;
 }
 
-#insertDish {
+#dishSuggestionSec {
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   margin: 0;
 }
 
-#clearBtn {
-  align-self: flex-end;
-  justify-self: flex-end;
-  padding: 5px 10px;
+.suggestionContainerBtns {
+align-self: flex-end;
+justify-self: flex-end;
+padding-right: 20px;
 }
 
-#clearBtn:active {
+#clearBtn:active, #addFavoriteBtn:active {
   background-color: #95a5a6;
   color: white;
 }
@@ -180,4 +182,12 @@ span + span {
   .bodyContainer {
     flex-direction: column;
   }
+}
+
+
+/* ~ ~ ~ ~ ~ ~ Favorites Page ~ ~ ~ ~ ~ ~ */
+.favoritesDisplaySec {
+  background-color: rgba(225, 225, 225, .9);
+  min-width: 60%;
+  min-height: 60%;
 }
