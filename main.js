@@ -2,10 +2,11 @@
 const addARecipeBtn = document.querySelector('#addRecipeBtn');
 const letsCookBtn = document.querySelector('#letsCookBtn');
 const clearBtn = document.querySelector('#clearBtn');
-const addNewRecipeBtn = document.querySelector('#addNewRecipeBtn')
+const addNewRecipeBtn = document.querySelector('#addNewRecipeBtn');
+
 
 const dishType = document.getElementsByTagName('dishType');
-const insertDish = document.getElementById('insertDish');
+const dishSuggestionSec = document.getElementById('dishSuggestionSec');
 const cookPotImg = document.querySelector('#cookPotImg');
 
 const mealContainer = document.querySelector('.mealContainer');
@@ -22,11 +23,13 @@ let sideDishes = [
   'A Single Carrot',
   'Crimini Mushrooms in Escargot Butter'
 ];
+
 let entree = [
   '24oz Wagyu Ribeye with a wild berry & merlot reduc. sauce',
   'Cup Ramen',
   'Avocado Toast'
 ];
+
 let dessert = [
   'Skittles',
   'Chocolate volcano',
@@ -34,7 +37,9 @@ let dessert = [
   'Mochi',
   'An Orange'
 ];
-let entireMeal; //random pick from 1 of each above array
+let favoriteSides = [];
+let favoriteEntrees = [];
+let favoriteDesserts = [];
 
 //Event listeners
 letsCookBtn.addEventListener('click', typeOfDishToCook);
@@ -50,30 +55,39 @@ function getRandomIndex(array) {
 
 function suggestSide() {
   let suggest = sideDishes[getRandomIndex(sideDishes)];
-  insertDish.textContent = suggest;
+  dishSuggestionSec.textContent = suggest;
 }
 
 function suggestEntree() {
   let suggest = entree[getRandomIndex(entree)];
-  insertDish.textContent = suggest;
+  dishSuggestionSec.textContent = suggest;
 }
 
 function suggestDessert() {
   let suggest = dessert[getRandomIndex(dessert)];
-  insertDish.textContent = suggest;
+  dishSuggestionSec.textContent = suggest;
 }
 
 function suggestEntireMeal() {
   let tempEntree = (entree[getRandomIndex(entree)]);
   let tempSide =  sideDishes[getRandomIndex(sideDishes)];
   let tempDessert = dessert[getRandomIndex(dessert)];
-  insertDish.textContent = `${tempEntree} with a side of ${tempSide} and ${tempDessert} for dessert!`
+  dishSuggestionSec.textContent = `${tempEntree} with a side of ${tempSide} and ${tempDessert} for dessert!`
+}
+
+function cookPotOff() {
+  mealContainer.classList.remove('hidden');
+  cookPotImg.classList.add('hidden');
+}
+
+function clear() {
+  mealContainer.classList.add('hidden');
+  cookPotImg.classList.remove('hidden')
 }
 
 function typeOfDishToCook() {
   let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
-  mealContainer.classList.remove('hidden');
-  cookPotImg.classList.add('hidden');
+  cookPotOff();
   if (tempDishValue === 'side') {
     suggestSide();
   }
@@ -88,15 +102,43 @@ function typeOfDishToCook() {
   }
 }
 
-function clear() {
-  mealContainer.classList.add('hidden');
-  cookPotImg.classList.remove('hidden')
-}
-
 function addNewRecipe() {
   let dishType = document.querySelector('input[name="recipeType"]').value;
   let dishName = document.querySelector('input[name="recipeName"]').value;
-  if (dishType == 'side' || 'dessert') {
-    alert('Please use a valid dish type');
+  let dishTypeLower = dishType.toLowerCase();
+  if (dishTypeLower === 'side') {
+    if (!sideDishes.includes(dishName)) {
+      sideDishes.push(dishName);
+      dishSuggestionSec.textContent = dishName;
+      cookPotOff();
+      alert(dishName + ' added!');
+      return
+    }
+    alert('You already put that in, foo!');
+    return
   }
+  if (dishTypeLower === 'entree') {
+    if (!entree.includes(dishName)) {
+      entree.push(dishName);
+      dishSuggestionSec.textContent = dishName;
+      cookPotOff();
+      alert(dishName + ' added!');
+      return
+    }
+    alert('You already put that in, foo!');
+    return
+  }
+  if (dishTypeLower === 'dessert') {
+    if (!dessert.includes(dishName)) {
+    dessert.push(dishName);
+    dishSuggestionSec.textContent = dishName;
+    cookPotOff();
+    alert(dishName + ' added!');
+    return
+    }
+    alert('You already put that in, foo!');
+    return
+  }
+  alert('Whatchu tryna make?! Side, entree, or dessert?');
+  return
 }

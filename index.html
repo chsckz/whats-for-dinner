@@ -22,7 +22,7 @@
           <label for="side">Side</label>
           <br>
           <input type="radio" name="dishType" value="entree">
-          <label for="entree">Entr&eacute;e</label>
+          <label for="entree">Entree</label>
           <br>
           <input type="radio" name="dishType" value="dessert">
           <label for="dessert">Dessert</label>
@@ -36,9 +36,12 @@
         <img id="cookPotImg" src="./assets/cookpot.svg">
         <section class="mealContainer hidden">
           <div class="suggestionContainer">You should make:<br>
-            <p id="insertDish"></p>
+            <p id="dishSuggestionSec"></p>
           </div>
+          <div class="suggestionContainerBtns">
+          <button id="addFavoriteBtn">ADD TO FAVORITES</button>
           <button id="clearBtn">CLEAR</button>
+          </div>
         </section>
       </div>
     </div>
