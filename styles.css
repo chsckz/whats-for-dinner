@@ -61,24 +61,27 @@ button {
 .bodyContainer {
   display: flex;
   flex-grow: 1;
-  justify-content: space-around;
-  padding: 30px 0;
+  justify-content: space-evenly;
+  padding: 30px 10px;
 }
 
 .leftContainer, .rightContainer {
   display: flex;
+  justify-content: center;
+  flex: 0;
   background-color: rgba(225, 225, 225, .9);
-  min-height: 350px;
-  max-height: 800px;
+  max-height: 70%;
   min-width: 30%;
-  flex-shrink: 0;
 }
 
 /* ~ ~ ~ ~ ~ ~ LEFT CONTAINER ~ ~ ~ ~ ~ ~ */
 .leftContainer {
   flex-direction: column;
   justify-content: center;
-  padding-left: 3em;
+}
+
+.formContainer {
+  margin-left: 10%;
 }
 
 .radioBtns {
@@ -127,8 +130,6 @@ button {
   font-style: italic;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  max-height: 100%;
 }
 
 #dishSuggestionSec {
@@ -140,7 +141,7 @@ button {
 
 .suggestionContainerBtns {
 align-self: flex-end;
-justify-self: flex-end;
+margin-left: auto;
 padding-right: 20px;
 }
 
@@ -152,9 +153,20 @@ padding-right: 20px;
 /* ~ ~ ~ ~ ~ ~ Footer ~ ~ ~ ~ ~ ~ */
 .footer {
   background-color: rgba(225, 225, 225, .9);
-  padding: 20px 20px;
+  padding: 10px 10px;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.addRecipe {
+  display: flex;
+  margin-right: auto;
+}
+
+.copyright {
+  font-size: 12px;
+  padding: 5px;
+  margin: 0;
 }
 
 span + span {
@@ -177,7 +189,7 @@ span + span {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .bodyContainer {
     flex-direction: column;
   }

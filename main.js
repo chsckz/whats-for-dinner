@@ -1,17 +1,26 @@
 //--------------------------------SELECTORS--------------------------------//
-const addARecipeBtn = document.querySelector('#addRecipeBtn');
+    
+//Header
+const addRecipeHeaderBtn = document.querySelector('#addARecipeBtn');
+
+
+//Body
+const cookPotImg = document.querySelector('#cookPotImg');
+
 const letsCookBtn = document.querySelector('#letsCookBtn');
 const addFavoriteBtn = document.querySelector('#addFavoriteBtn');
 const clearBtn = document.querySelector('#clearBtn');
-const addNewRecipeBtn = document.querySelector('#addNewRecipeBtn');
 
-const dishType = document.getElementsByTagName('dishType');
 const dishSuggestionSec = document.getElementById('dishSuggestionSec');
 const mealContainer = document.querySelector('.mealContainer');
 
-const cookPotImg = document.querySelector('#cookPotImg');
+
+//Footer
+const addRecipeFooterBtn = document.querySelector('#addNewRecipeBtn');
+
 
 //---------------------------------ARRAYS---------------------------------//
+
 let sideDishes = [
   'Mac N Cheese',
   'Side Salad',
@@ -44,15 +53,23 @@ let tempDessert;
 
 
 //-----------------------------EVENT LISTENERS-----------------------------//
+addRecipeHeaderBtn.addEventListener('click', showAddRecipeForm)
+addRecipeFooterBtn.addEventListener('click', addNewRecipe);
 letsCookBtn.addEventListener('click', typeOfDishToCook);
 clearBtn.addEventListener('click', clear);
-addNewRecipeBtn.addEventListener('click', addNewRecipe);
+
 addFavoriteBtn.addEventListener('click', favoriteAdd);
 
 //--------------------------------FUNCTIONS--------------------------------//
 
+//Header
 
-    //Left container functions
+function showAddRecipeForm() {
+  document.querySelector('.copyright').classList.toggle('hidden');
+  document.querySelector('.addRecipe').classList.toggle('hidden');
+}
+
+//Left container functions
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -111,7 +128,7 @@ function typeOfDishToCook() {
 }
 
 
-    //Right container functions
+//Right container functions
 
 function cookPotOff() {
   mealContainer.classList.remove('hidden');
@@ -129,7 +146,7 @@ function clear() {
 
 
 
-    //Favorites storage
+//Favorites storage
 
 function favoriteMealStorage() {
 
@@ -148,7 +165,7 @@ function favoriteAdd() {
 }
 
 
-    //Footer -  add new recipe
+//Footer -  add new recipe
 
 function addNewRecipe() {
   let dishType = document.querySelector('input[name="recipeType"]').value;
