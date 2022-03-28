@@ -1,19 +1,17 @@
-//Selectors
+//--------------------------------SELECTORS--------------------------------//
 const addARecipeBtn = document.querySelector('#addRecipeBtn');
 const letsCookBtn = document.querySelector('#letsCookBtn');
+const addFavoriteBtn = document.querySelector('#addFavoriteBtn');
 const clearBtn = document.querySelector('#clearBtn');
 const addNewRecipeBtn = document.querySelector('#addNewRecipeBtn');
 
-
 const dishType = document.getElementsByTagName('dishType');
 const dishSuggestionSec = document.getElementById('dishSuggestionSec');
-const cookPotImg = document.querySelector('#cookPotImg');
-
 const mealContainer = document.querySelector('.mealContainer');
 
+const cookPotImg = document.querySelector('#cookPotImg');
 
-
-//Recipe storage arrays
+//---------------------------------ARRAYS---------------------------------//
 let sideDishes = [
   'Mac N Cheese',
   'Side Salad',
@@ -40,14 +38,21 @@ let dessert = [
 let favoriteSides = [];
 let favoriteEntrees = [];
 let favoriteDesserts = [];
+let tempSide;
+let tempEntree;
+let tempDessert;
 
-//Event listeners
+
+//-----------------------------EVENT LISTENERS-----------------------------//
 letsCookBtn.addEventListener('click', typeOfDishToCook);
 clearBtn.addEventListener('click', clear);
 addNewRecipeBtn.addEventListener('click', addNewRecipe);
+addFavoriteBtn.addEventListener('click', favoriteAdd);
+
+//--------------------------------FUNCTIONS--------------------------------//
 
 
-//Functions
+    //Left container functions
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -56,34 +61,37 @@ function getRandomIndex(array) {
 function suggestSide() {
   let suggest = sideDishes[getRandomIndex(sideDishes)];
   dishSuggestionSec.textContent = suggest;
+  tempSide = suggest;
+  tempEntree = undefined;
+  tempDessert = undefined;
 }
 
 function suggestEntree() {
   let suggest = entree[getRandomIndex(entree)];
   dishSuggestionSec.textContent = suggest;
+  tempSide = undefined;
+  tempEntree = suggest;
+  tempDessert = undefined;
 }
 
 function suggestDessert() {
   let suggest = dessert[getRandomIndex(dessert)];
   dishSuggestionSec.textContent = suggest;
+  tempSide = undefined;
+  tempEntree = undefined;
+  tempDessert = suggest;
 }
 
 function suggestEntireMeal() {
-  let tempEntree = (entree[getRandomIndex(entree)]);
-  let tempSide =  sideDishes[getRandomIndex(sideDishes)];
-  let tempDessert = dessert[getRandomIndex(dessert)];
-  dishSuggestionSec.textContent = `${tempEntree} with a side of ${tempSide} and ${tempDessert} for dessert!`
+  let mealEntree = entree[getRandomIndex(entree)];
+  let mealSide =  sideDishes[getRandomIndex(sideDishes)];
+  let mealDessert = dessert[getRandomIndex(dessert)];
+  tempEntree = mealEntree;
+  tempSide = mealSide;
+  tempDessert = mealDessert;
+  dishSuggestionSec.textContent = `${mealEntree} with a side of ${mealSide} and ${mealDessert} for dessert!`
 }
 
-function cookPotOff() {
-  mealContainer.classList.remove('hidden');
-  cookPotImg.classList.add('hidden');
-}
-
-function clear() {
-  mealContainer.classList.add('hidden');
-  cookPotImg.classList.remove('hidden')
-}
 
 function typeOfDishToCook() {
   let tempDishValue = document.querySelector('input[name="dishType"]:checked').value;
@@ -101,6 +109,46 @@ function typeOfDishToCook() {
     suggestEntireMeal();
   }
 }
+
+
+    //Right container functions
+
+function cookPotOff() {
+  mealContainer.classList.remove('hidden');
+  cookPotImg.classList.add('hidden');
+}
+
+function clear() {
+  mealContainer.classList.add('hidden');
+  cookPotImg.classList.remove('hidden');
+  tempSide = undefined;
+  tempEntree = undefined;
+  tempDessert = undefined;
+}
+
+
+
+
+    //Favorites storage
+
+function favoriteMealStorage() {
+
+}
+
+function favoriteAdd() {
+  if (tempSide !== undefined && !favoriteSides.includes(tempSide)) {
+    favoriteSides.push(tempSide);
+  }
+  if (tempEntree !== undefined && !favoriteEntrees.includes(tempEntree)) {
+    favoriteEntrees.push(tempEntree);
+  }
+  if (tempDessert !== undefined && !favoriteDesserts.includes(tempDessert)) {
+    favoriteDesserts.push(tempDessert);
+  }
+}
+
+
+    //Footer -  add new recipe
 
 function addNewRecipe() {
   let dishType = document.querySelector('input[name="recipeType"]').value;
@@ -142,3 +190,7 @@ function addNewRecipe() {
   alert('Whatchu tryna make?! Side, entree, or dessert?');
   return
 }
+
+
+//--------------------------------EXPORT--------------------------------//
+// export function addNewRecipe();
