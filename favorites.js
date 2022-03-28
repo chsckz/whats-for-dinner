@@ -9,6 +9,11 @@ const favoriteEntreesSec = document.querySelector('.favoriteEntreesSec');
 const favoriteDessertsSec = document.querySelector('.favoriteDessertsSec');
 
 
+//--------------------------------ARRAYS-----------------------------------//
+let favoriteSides = [];
+let favoriteEntrees = [];
+let favoriteDesserts = [];
+
 
 //---------------------------EVENT LISTENERS-------------------------------//
 homeBtn.addEventListener('click', goHome);
@@ -24,3 +29,4 @@ function goHome() {
   window.location.href="./index.html"
 }
 
+// function 

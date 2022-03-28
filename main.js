@@ -7,7 +7,7 @@ const addRecipeHeaderBtn = document.querySelector('#addARecipeBtn');
 //Body
 const cookPotImg = document.querySelector('#cookPotImg');
 
-const letsCookBtn = document.querySelector('#letsCookBtn');
+const cookItUpBtn = document.querySelector('#cookItUpBtn');
 const addFavoriteBtn = document.querySelector('#addFavoriteBtn');
 const clearBtn = document.querySelector('#clearBtn');
 
@@ -55,7 +55,7 @@ let tempDessert;
 //-----------------------------EVENT LISTENERS-----------------------------//
 addRecipeHeaderBtn.addEventListener('click', showAddRecipeForm)
 addRecipeFooterBtn.addEventListener('click', addNewRecipe);
-letsCookBtn.addEventListener('click', typeOfDishToCook);
+cookItUpBtn.addEventListener('click', typeOfDishToCook);
 clearBtn.addEventListener('click', clear);
 
 addFavoriteBtn.addEventListener('click', favoriteAdd);
@@ -144,14 +144,7 @@ function clear() {
 }
 
 
-
-
 //Favorites storage
-
-function favoriteMealStorage() {
-
-}
-
 function favoriteAdd() {
   if (tempSide !== undefined && !favoriteSides.includes(tempSide)) {
     favoriteSides.push(tempSide);
@@ -162,6 +155,36 @@ function favoriteAdd() {
   if (tempDessert !== undefined && !favoriteDesserts.includes(tempDessert)) {
     favoriteDesserts.push(tempDessert);
   }
+}
+
+function favoriteMealStorage() {
+  window.localStorage.setItem('favSides', JSON.stringify(favoriteSides));
+  window.localStorage.setItem('favEntrees', JSON.stringify(favoriteEntrees));
+  window.localStorage.setItem('favDesserts', JSON.stringify(favoriteDesserts));
+}
+
+function favoriteMealRetrieve() {
+  let favSides = window.localStorage.getItem('favSides');
+  let favEntrees = window.localStorage.getItem('favEntrees');
+  let favDesserts = window.localStorage.getItem('favDesserts');
+  let parseSides = JSON.parse(favSides);
+  let parseEntrees = JSON.parse(favEntrees);
+  let parseDesserts = JSON.parse(favDesserts);
+  for (i = 0; i < parseSides.length; i++) {
+    if (!favoriteSides.includes(parseSides[i])) {
+      favoriteSides.push(parseSides[i]);
+    }
+  }
+  for (j = 0; j < parseEntrees.length; j++) {
+    if (!favoriteEntrees.includes(parseEntrees[j])) {
+      favoriteEntrees.push(parseEntrees[j]);
+    }
+  }
+  for (k = 0; k < parseDesserts.length; k++) {
+    if (!favoriteDesserts.includes(parseDesserts[k])) {
+      favoriteDesserts.push(parseDesserts[k]);
+    }
+  }    
 }
 
 
@@ -211,3 +234,4 @@ function addNewRecipe() {
 
 //--------------------------------EXPORT--------------------------------//
 // export function addNewRecipe();
+
