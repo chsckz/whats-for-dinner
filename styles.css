@@ -71,8 +71,8 @@ button {
   justify-content: center;
   flex: 0;
   background-color: rgba(225, 225, 225, .9);
-  max-height: 50%;
   min-width: 30%;
+  max-height: 700px;
 }
 
 /* ~ ~ ~ ~ ~ ~ LEFT CONTAINER ~ ~ ~ ~ ~ ~ */
@@ -203,9 +203,19 @@ span + span {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: space-between;
   max-width: 80%;
   min-height: 60%;
+  margin-left: 15%;
+}
+
+.favoritesDisplaySec > h4 {
+  margin-left: 5%;
   font-weight: 700;
-  padding: 25px;
+  font-size: 24px;
+}
+
+.favoritesDisplaySec > ul {
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
 }

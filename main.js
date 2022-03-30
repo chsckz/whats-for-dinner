@@ -2,6 +2,7 @@
     
 //Header
 const addRecipeHeaderBtn = document.querySelector('#addARecipeBtn');
+const viewFavoritesBtn = document.querySelector('#viewFavorites');
 
 
 //Body
@@ -53,12 +54,16 @@ let tempDessert;
 
 
 //-----------------------------EVENT LISTENERS-----------------------------//
+window.onload = favoriteMealRetrieve();
+
+
 addRecipeHeaderBtn.addEventListener('click', showAddRecipeForm)
 addRecipeFooterBtn.addEventListener('click', addNewRecipe);
 cookItUpBtn.addEventListener('click', typeOfDishToCook);
 clearBtn.addEventListener('click', clear);
 
 addFavoriteBtn.addEventListener('click', favoriteAdd);
+viewFavoritesBtn.addEventListener('click', viewFavoritesPage);
 
 //--------------------------------FUNCTIONS--------------------------------//
 
@@ -144,7 +149,7 @@ function clear() {
 }
 
 
-//Favorites storage
+//Favorites & storage
 function favoriteAdd() {
   if (tempSide !== undefined && !favoriteSides.includes(tempSide)) {
     favoriteSides.push(tempSide);
@@ -187,6 +192,9 @@ function favoriteMealRetrieve() {
   }    
 }
 
+function viewFavoritesPage() {
+  window.location.href="./favorites.html"
+}
 
 //Footer -  add new recipe
 
